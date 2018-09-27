@@ -1,4 +1,4 @@
-console.log('app');
+console.log('app.js is running!');
 
 //JSX  JavaScript XML
 var template = <p>This is JSX from app.js!</p>
