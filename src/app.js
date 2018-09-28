@@ -20,9 +20,9 @@ var user = {
 
 function getLocation(location) {
   if (location) {
-    return location;
+    return <p>Location: {location}</p>;
   } else {
-    return 'Unknown';
+    return undefined;
   }
 }
 
@@ -30,7 +30,7 @@ function getLocation(location) {
   <div>
     <h1>{user.name.toUpperCase() + '!'}</h1>
     <p>Age: {user.age}</p>
-    <p>Location: {getLocation(user.location)}</p>
+    {getLocation(user.location)}
   </div>
 );
 
