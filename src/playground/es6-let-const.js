@@ -15,9 +15,25 @@ const nameConst = 'Frank';
 
 console.log('nameConst', nameConst);
 
-function getPetName() {
-  var petName= 'Hal';
-  return petName
+//Block scoping
+
+var fullName = 'Andrew Mead';
+
+if(fullName) {
+  let firstName = fullName.split(' ')[0];
+  console.log(firstName);
 }
 
-getPetName();
+// console.log(firstName);  'Andrew' -- when var --
+// console.log(firstName); Uncaught ReferenceError: firstName is not defined -- when const --
+// console.log(firstName); Uncaught ReferenceError: firstName is not defined -- when let --
+
+var fullName = 'Andrew Mead';
+let firstName;
+
+if(fullName) {
+  firstName = fullName.split(' ')[1];
+  console.log(firstName);
+}
+
+console.log(firstName);
