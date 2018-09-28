@@ -48,12 +48,14 @@ var templateTwo = React.createElement(
     null,
     user.name ? user.name : 'Anonymous'
   ),
-  React.createElement(
+  ' ',
+  user.age && user.age >= 18 && React.createElement(
     'p',
     null,
     'Age: ',
     user.age
   ),
+  ' ',
   getLocation(user.location)
 );
 
