@@ -2,10 +2,9 @@
 
 console.log('app.js is running!');
 
-var user = {
-  name: 'Raul',
-  age: '34',
-  location: 'Reading'
+var app = {
+  title: 'Indecision App',
+  subtitle: 'Put your life in the hands of a computer'
   //JSX  JavaScript XML
 };var template = React.createElement(
   'div',
@@ -13,7 +12,36 @@ var user = {
   React.createElement(
     'h1',
     null,
-    user.name
+    app.title
+  ),
+  React.createElement(
+    'p',
+    null,
+    app.subtitle
+  )
+);
+
+var user = {
+  name: 'Andrew',
+  age: 26,
+  location: 'Philadelphia!'
+};
+
+function getLocation(location) {
+  if (location) {
+    return location;
+  } else {
+    return 'Unknown';
+  }
+}
+
+var templateTwo = React.createElement(
+  'div',
+  null,
+  React.createElement(
+    'h1',
+    null,
+    user.name.toUpperCase() + '!'
   ),
   React.createElement(
     'p',
@@ -25,33 +53,7 @@ var user = {
     'p',
     null,
     'Location: ',
-    user.location
-  )
-);
-
-var userName = 'Andrew Mead';
-var userAge = 27;
-var userLocation = 'Philadelphia';
-
-var templateTwo = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    userName.toUpperCase() + '!'
-  ),
-  React.createElement(
-    'p',
-    null,
-    'Age: ',
-    userAge
-  ),
-  React.createElement(
-    'p',
-    null,
-    'Location: ',
-    userLocation
+    getLocation(user.location)
   )
 );
 

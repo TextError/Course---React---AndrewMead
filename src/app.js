@@ -1,28 +1,36 @@
 console.log('app.js is running!');
 
-var user = {
-  name: 'Raul',
-  age: '34',
-  location: 'Reading'
+var app = {
+  title: 'Indecision App',
+  subtitle: 'Put your life in the hands of a computer'
 }
 //JSX  JavaScript XML
 var template = (
   <div>
-    <h1>{user.name}</h1>
-    <p>Age: {user.age}</p>
-    <p>Location: {user.location}</p>
+    <h1>{app.title}</h1>
+    <p>{app.subtitle}</p>
   </div>
 );
 
-var userName= 'Andrew Mead';
-var userAge= 27;
-var userLocation= 'Philadelphia'
+var user = {
+  name: 'Andrew',
+  age: 26,
+  location: 'Philadelphia!'
+};
+
+function getLocation(location) {
+  if (location) {
+    return location;
+  } else {
+    return 'Unknown';
+  }
+}
 
  var templateTwo = (
   <div>
-    <h1>{userName.toUpperCase() + '!'}</h1>
-    <p>Age: {userAge}</p>
-    <p>Location: {userLocation}</p>
+    <h1>{user.name.toUpperCase() + '!'}</h1>
+    <p>Age: {user.age}</p>
+    <p>Location: {getLocation(user.location)}</p>
   </div>
 );
 
