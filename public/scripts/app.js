@@ -47,12 +47,16 @@ console.log(addArrowFunction(55, 1));
 
 var user = {
   name: 'Andrew',
-  cities: ['Philadelphia', 'NY', 'Dublin'],
+  cities: ['Philadelphia', 'NY', 'Dublin', 'London'],
   printPlacesLived: function printPlacesLived() {
+    var _this = this;
+
     var that = this;
     this.cities.forEach(function (city) {
+      // this.cities.forEach(function(city) {
       //console.log(this.name + ' has lived in ' + city);  // Cannot read property 'name' of undefined
-      console.log(that.name + ' has lived in ' + city); //workaround;
+      // console.log(that.name + ' has lived in ' + city);  //workaround;
+      console.log(_this.name + ' has lived in ' + city);
     });
   }
 };

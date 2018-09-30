@@ -43,12 +43,14 @@ console.log(addArrowFunction(55, 1));
 
 const user = {
   name: 'Andrew',
-  cities: ['Philadelphia', 'NY', 'Dublin'],
-  printPlacesLived: function() {
+  cities: ['Philadelphia', 'NY', 'Dublin', 'London'],
+  printPlacesLived() {
     const that = this;
-    this.cities.forEach(function(city) {
+    this.cities.forEach((city) => {
+    // this.cities.forEach(function(city) {
       //console.log(this.name + ' has lived in ' + city);  // Cannot read property 'name' of undefined
-      console.log(that.name + ' has lived in ' + city);  //workaround;
+      // console.log(that.name + ' has lived in ' + city);  //workaround;
+      console.log(this.name + ' has lived in ' + city);
     });
   }
 };
