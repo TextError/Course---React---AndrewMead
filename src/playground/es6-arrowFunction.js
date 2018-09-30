@@ -65,3 +65,14 @@ const user = {
 user.printPlacesLived();
 
 console.log(user.printPlaceVisited());
+
+//Challenge 
+const multiplier = {
+  numbers: [2, 4, 6 ,8],
+  multiplyBy: 5,
+  multiply() {
+    return this.numbers.map((res) => res * this.multiplyBy);
+  }
+}
+
+console.log(multiplier.multiply());

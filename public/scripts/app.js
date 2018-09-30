@@ -73,3 +73,18 @@ var user = {
 user.printPlacesLived();
 
 console.log(user.printPlaceVisited());
+
+//Challenge 
+var multiplier = {
+  numbers: [2, 4, 6, 8],
+  multiplyBy: 5,
+  multiply: function multiply() {
+    var _this3 = this;
+
+    return this.numbers.map(function (res) {
+      return res * _this3.multiplyBy;
+    });
+  }
+};
+
+console.log(multiplier.multiply());
