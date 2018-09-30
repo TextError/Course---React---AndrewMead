@@ -38,3 +38,19 @@ const addArrowFunction = (a, b) => {
 }
 
 console.log(addArrowFunction(55, 1));
+
+//this keyword - no longer bound with arrow function
+
+const user = {
+  name: 'Andrew',
+  cities: ['Philadelphia', 'NY', 'Dublin'],
+  printPlacesLived: function() {
+    const that = this;
+    this.cities.forEach(function(city) {
+      //console.log(this.name + ' has lived in ' + city);  // Cannot read property 'name' of undefined
+      console.log(that.name + ' has lived in ' + city);  //workaround;
+    });
+  }
+};
+
+user.printPlacesLived();
