@@ -44,6 +44,7 @@ console.log(addArrowFunction(55, 1));
 const user = {
   name: 'Andrew',
   cities: ['Philadelphia', 'NY', 'Dublin', 'London'],
+  citiesVisited: ['Paris', 'Rome'],
   printPlacesLived() {
     const that = this;
     this.cities.forEach((city) => {
@@ -52,7 +53,15 @@ const user = {
       // console.log(that.name + ' has lived in ' + city);  //workaround;
       console.log(this.name + ' has lived in ' + city);
     });
+  },
+  printPlaceVisited() {
+    const citiesvisited = this.citiesVisited.map((city) => {
+      return this.name + ' has visited ' + city
+    });
+    return citiesvisited;
   }
 };
 
 user.printPlacesLived();
+
+console.log(user.printPlaceVisited());

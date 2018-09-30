@@ -48,6 +48,7 @@ console.log(addArrowFunction(55, 1));
 var user = {
   name: 'Andrew',
   cities: ['Philadelphia', 'NY', 'Dublin', 'London'],
+  citiesVisited: ['Paris', 'Rome'],
   printPlacesLived: function printPlacesLived() {
     var _this = this;
 
@@ -58,7 +59,17 @@ var user = {
       // console.log(that.name + ' has lived in ' + city);  //workaround;
       console.log(_this.name + ' has lived in ' + city);
     });
+  },
+  printPlaceVisited: function printPlaceVisited() {
+    var _this2 = this;
+
+    var citiesvisited = this.citiesVisited.map(function (city) {
+      return _this2.name + ' has visited ' + city;
+    });
+    return citiesvisited;
   }
 };
 
 user.printPlacesLived();
+
+console.log(user.printPlaceVisited());
