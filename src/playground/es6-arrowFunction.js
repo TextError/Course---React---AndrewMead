@@ -24,3 +24,17 @@ const getFirstName = (name) => {
 const getLastName = (name) => name.split(' ')[2];
 
 console.log(getLastName(name), getFirstName(name), middleName(name));
+
+//arguments object - no longer bound with arrow function
+
+const add = function(a, b) {
+  console.log(arguments);
+  return a + b;
+};
+
+const addArrowFunction = (a, b) => {
+  // console.log(arguments);  //Uncaught ReferenceError: arguments is not defined
+  return a + b;
+}
+
+console.log(addArrowFunction(55, 1));

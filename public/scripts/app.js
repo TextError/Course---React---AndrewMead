@@ -28,3 +28,17 @@ var getLastName = function getLastName(name) {
 };
 
 console.log(getLastName(name), getFirstName(name), middleName(name));
+
+//arguments object - no longer bound with arrow function
+
+var add = function add(a, b) {
+  console.log(arguments);
+  return a + b;
+};
+
+var addArrowFunction = function addArrowFunction(a, b) {
+  // console.log(arguments);  //Uncaught ReferenceError: arguments is not defined
+  return a + b;
+};
+
+console.log(addArrowFunction(55, 1));
