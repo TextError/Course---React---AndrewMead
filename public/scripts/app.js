@@ -1,20 +1,40 @@
 'use strict';
 
-var toggle = function toggle() {
-  if (state === 0) {
-    state++;
-  } else {
-    state--;
-  }
-  challengeUpdate();
+// const toggle = () => {
+//   if (state === 0) {
+//     state++
+//   } else {
+//     state--
+//   }
+//   challengeUpdate();
+// }
+
+// let state = 0;
+
+// const appRoot = document.getElementById('app');
+
+// const challengeUpdate = () => {
+//   const challenge = (
+//     <div>
+//       <h1>Visibility Toggle</h1>
+//       <button onClick={toggle}>{state === 0 ? 'Show Details' : 'Hide Details'}</button>
+//       {state === 0 ? null : <p>Hey, These are some details you can now see!!</p>}
+//     </div>
+//   );
+//   ReactDOM.render(challenge, appRoot);
+// };
+
+// challengeUpdate();
+
+var visibility = false;
+
+var toggleVisibility = function toggleVisibility() {
+  visibility = !visibility;
+  render();
 };
 
-var state = 0;
-
-var appRoot = document.getElementById('app');
-
-var challengeUpdate = function challengeUpdate() {
-  var challenge = React.createElement(
+var render = function render() {
+  var jsx = React.createElement(
     'div',
     null,
     React.createElement(
@@ -24,16 +44,20 @@ var challengeUpdate = function challengeUpdate() {
     ),
     React.createElement(
       'button',
-      { onClick: toggle },
-      state === 0 ? 'Show Details' : 'Hide Details'
+      { onClick: toggleVisibility },
+      visibility ? 'Hide Details' : 'Show Details'
     ),
-    state === 0 ? null : React.createElement(
-      'p',
+    visibility && React.createElement(
+      'div',
       null,
-      'Hey, These are some details you can now see!!'
+      React.createElement(
+        'p',
+        null,
+        'Hey, These are some details you can now see!'
+      )
     )
   );
-  ReactDOM.render(challenge, appRoot);
+  ReactDOM.render(jsx, document.getElementById('app'));
 };
 
-challengeUpdate();
+render();
