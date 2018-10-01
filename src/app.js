@@ -12,10 +12,11 @@ const onFormSubmit = (e) => {
   if (formValue) {
     app.option.push(formValue);
     e.target.elements.option.value = '';
+    renderOption();
   }
-
-  renderOption();
 }
+
+var appRoot = document.getElementById('app');
 
 const renderOption = () => {
   var template = (
@@ -35,7 +36,6 @@ const renderOption = () => {
     </div>
   );
   
-  var appRoot = document.getElementById('app');
   ReactDOM.render(template, appRoot);
 };
 

@@ -13,10 +13,11 @@ var app = {
   if (formValue) {
     app.option.push(formValue);
     e.target.elements.option.value = '';
+    renderOption();
   }
-
-  renderOption();
 };
+
+var appRoot = document.getElementById('app');
 
 var renderOption = function renderOption() {
   var template = React.createElement(
@@ -68,7 +69,6 @@ var renderOption = function renderOption() {
     )
   );
 
-  var appRoot = document.getElementById('app');
   ReactDOM.render(template, appRoot);
 };
 
