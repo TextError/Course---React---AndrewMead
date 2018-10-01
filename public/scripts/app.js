@@ -17,6 +17,11 @@ var app = {
   }
 };
 
+var remove = function remove() {
+  app.option = [];
+  renderOption();
+};
+
 var appRoot = document.getElementById('app');
 
 var renderOption = function renderOption() {
@@ -42,6 +47,11 @@ var renderOption = function renderOption() {
       'p',
       null,
       app.option.length
+    ),
+    React.createElement(
+      'button',
+      { onClick: remove },
+      'Remove Options'
     ),
     React.createElement(
       'ol',
