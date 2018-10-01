@@ -18,42 +18,55 @@ var template = (
   </div>
 );
 
+// var user = {
+//   name: 'Andrew',
+//   age: 26,
+//   location: 'Philadelphia!'
+// };
 
+// function getLocation(location) {
+//   if (location) {
+//     return <p>Location: {location}</p>;
+//   } else {
+//     return undefined;
+//   }
+// }
 
+//  var templateTwo = (
+//   <div>
+//     <h1>{user.name ? user.name : 'Anonymous'}</h1> {/*1 or 2 thing*/}
+//     {(user.age && user.age >= 18) && <p>Age: {user.age}</p>} {/*Do 1 thing* else nothing*/}
+//     {getLocation(user.location)}
+//   </div>
+// );
 
+let count = 0;
 
-
-
-
-
-
-
-
-
-
-var user = {
-  name: 'Andrew',
-  age: 26,
-  location: 'Philadelphia!'
+const addOne = () => {
+  console.log('clicked')
 };
 
-function getLocation(location) {
-  if (location) {
-    return <p>Location: {location}</p>;
-  } else {
-    return undefined;
-  }
-}
+const minusOne = () => {
+  console.log('minusOne')
+};
 
- var templateTwo = (
+const reset = () => {
+  console.log('reset')
+};
+
+const templateTwo = (
   <div>
-    <h1>{user.name ? user.name : 'Anonymous'}</h1> {/*1 or 2 thing*/}
-    {(user.age && user.age >= 18) && <p>Age: {user.age}</p>} {/*Do 1 thing* else nothing*/}
-    {getLocation(user.location)}
+    <h1>Count: {count}</h1>
+    <button onClick={addOne}>+1</button>
+    <button onClick={minusOne}>-1</button>
+    <button onClick={reset}>reset</button>
   </div>
 );
+
+//Challenge
+
 
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);

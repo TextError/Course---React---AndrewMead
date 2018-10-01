@@ -1,90 +1,111 @@
 'use strict';
 
-// const squere = function(x) {
-//   return x * x
+console.log('app.js is running!');
+
+var app = {
+  title: 'Indecision App',
+  subtitle: 'Put your life in the hands of a computer',
+  option: ['One', 'Two']
+  //JSX  JavaScript XML
+};var template = React.createElement(
+  'div',
+  null,
+  React.createElement(
+    'h1',
+    null,
+    app.title
+  ),
+  app.subtitle && React.createElement(
+    'p',
+    null,
+    app.subtitle
+  ),
+  React.createElement(
+    'p',
+    null,
+    app.option.length > 0 ? 'Here are your options' : 'No options'
+  ),
+  React.createElement(
+    'ol',
+    null,
+    React.createElement(
+      'li',
+      null,
+      'Item one'
+    ),
+    React.createElement(
+      'li',
+      null,
+      'item two'
+    )
+  )
+);
+
+// var user = {
+//   name: 'Andrew',
+//   age: 26,
+//   location: 'Philadelphia!'
 // };
 
-// // const squereArrow = (x) => {
-// //   return x * x;
-// // };
+// function getLocation(location) {
+//   if (location) {
+//     return <p>Location: {location}</p>;
+//   } else {
+//     return undefined;
+//   }
+// }
 
-// const squereArrow = (x) => x * x;  //return single expresion
+//  var templateTwo = (
+//   <div>
+//     <h1>{user.name ? user.name : 'Anonymous'}</h1> {/*1 or 2 thing*/}
+//     {(user.age && user.age >= 18) && <p>Age: {user.age}</p>} {/*Do 1 thing* else nothing*/}
+//     {getLocation(user.location)}
+//   </div>
+// );
 
-// console.log(squereArrow(4));
+var count = 0;
+
+var addOne = function addOne() {
+  console.log('clicked');
+};
+
+var minusOne = function minusOne() {
+  console.log('minusOne');
+};
+
+var reset = function reset() {
+  console.log('reset');
+};
+
+var templateTwo = React.createElement(
+  'div',
+  null,
+  React.createElement(
+    'h1',
+    null,
+    'Count: ',
+    count
+  ),
+  React.createElement(
+    'button',
+    { onClick: addOne },
+    '+1'
+  ),
+  React.createElement(
+    'button',
+    { onClick: minusOne },
+    '-1'
+  ),
+  React.createElement(
+    'button',
+    { onClick: reset },
+    'reset'
+  )
+);
 
 //Challenge
-var name = 'Raul Calin Savin';
 
-function middleName(name) {
-  return name.split(' ')[1];
-}
 
-var getFirstName = function getFirstName(name) {
-  return name.split(' ')[0];
-};
+var appRoot = document.getElementById('app');
 
-var getLastName = function getLastName(name) {
-  return name.split(' ')[2];
-};
-
-console.log(getLastName(name), getFirstName(name), middleName(name));
-
-//arguments object - no longer bound with arrow function
-
-var add = function add(a, b) {
-  console.log(arguments);
-  return a + b;
-};
-
-var addArrowFunction = function addArrowFunction(a, b) {
-  // console.log(arguments);  //Uncaught ReferenceError: arguments is not defined
-  return a + b;
-};
-
-console.log(addArrowFunction(55, 1));
-
-//this keyword - no longer bound with arrow function
-
-var user = {
-  name: 'Andrew',
-  cities: ['Philadelphia', 'NY', 'Dublin', 'London'],
-  citiesVisited: ['Paris', 'Rome'],
-  printPlacesLived: function printPlacesLived() {
-    var _this = this;
-
-    var that = this;
-    this.cities.forEach(function (city) {
-      // this.cities.forEach(function(city) {
-      //console.log(this.name + ' has lived in ' + city);  // Cannot read property 'name' of undefined
-      // console.log(that.name + ' has lived in ' + city);  //workaround;
-      console.log(_this.name + ' has lived in ' + city);
-    });
-  },
-  printPlaceVisited: function printPlaceVisited() {
-    var _this2 = this;
-
-    var citiesvisited = this.citiesVisited.map(function (city) {
-      return _this2.name + ' has visited ' + city;
-    });
-    return citiesvisited;
-  }
-};
-
-user.printPlacesLived();
-
-console.log(user.printPlaceVisited());
-
-//Challenge 
-var multiplier = {
-  numbers: [2, 4, 6, 8],
-  multiplyBy: 5,
-  multiply: function multiply() {
-    var _this3 = this;
-
-    return this.numbers.map(function (res) {
-      return res * _this3.multiplyBy;
-    });
-  }
-};
-
-console.log(multiplier.multiply());
+ReactDOM.render(templateTwo, appRoot);
