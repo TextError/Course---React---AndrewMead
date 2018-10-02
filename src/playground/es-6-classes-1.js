@@ -12,8 +12,18 @@ class Person {
   }
 };
 
-const me = new Person('Andrew Mead', 26);
-console.log(me.getDescription());
+class Student extends Person {
+  constructor(name, age, major) {
+    super(name, age);
+    this.major = major;
+  }
+  hasMajor() {
+    return !!this.major;
+  }
+}
 
-const other = new Person();
-console.log(other.getDescription());
+const me = new Student('Andrew Mead', 26, 'Computer Science');
+console.log(me.hasMajor());
+
+const other = new Student();
+console.log(other.hasMajor());
