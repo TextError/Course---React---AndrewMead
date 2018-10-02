@@ -25,7 +25,7 @@ var Person = function () {
     key: 'getGreeting',
     value: function getGreeting() {
       //return 'Hi ' + this.name + '!';
-      return 'Hi ' + this.name + '!';
+      return 'Hi I am ' + this.name + '!';
     }
   }, {
     key: 'getDescription',
@@ -70,8 +70,36 @@ var Student = function (_Person) {
   return Student;
 }(Person);
 
-var me = new Student('Andrew Mead', 26, 'Computer Science');
-console.log(me.getDescription());
+var Traveler = function (_Person2) {
+  _inherits(Traveler, _Person2);
 
-var other = new Student();
-console.log(other.getDescription());
+  function Traveler(name, age, location) {
+    _classCallCheck(this, Traveler);
+
+    var _this2 = _possibleConstructorReturn(this, (Traveler.__proto__ || Object.getPrototypeOf(Traveler)).call(this, name, age));
+
+    _this2.location = location;
+    return _this2;
+  }
+
+  _createClass(Traveler, [{
+    key: 'getGreeting',
+    value: function getGreeting() {
+      var greeting = _get(Traveler.prototype.__proto__ || Object.getPrototypeOf(Traveler.prototype), 'getGreeting', this).call(this);
+
+      if (this.location) {
+        greeting += ' I am visiting  from ' + this.location + '.';
+      }
+
+      return greeting;
+    }
+  }]);
+
+  return Traveler;
+}(Person);
+
+var me = new Traveler('Andrew Mead', 26, 'Philadelphia');
+console.log(me.getGreeting());
+
+var other = new Traveler(undefined, undefined, 'Land of nowhere');
+console.log(other.getGreeting());
