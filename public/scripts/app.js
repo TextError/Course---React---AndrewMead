@@ -172,15 +172,30 @@ var AddOption = function (_React$Component6) {
   }
 
   _createClass(AddOption, [{
+    key: 'handleSubmit',
+    value: function handleSubmit(e) {
+      e.preventDefault();
+
+      var inputText = e.target.elements.textInput.value.trim();
+      if (inputText) {
+        alert(inputText);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return React.createElement(
         'div',
         null,
         React.createElement(
-          'p',
-          null,
-          'AddOption Component here'
+          'form',
+          { onSubmit: this.handleSubmit },
+          React.createElement('input', { type: 'text', name: 'textInput' }),
+          React.createElement(
+            'button',
+            { type: 'Submit' },
+            'Add Option'
+          )
         )
       );
     }
