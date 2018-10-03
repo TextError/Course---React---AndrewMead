@@ -110,12 +110,9 @@ var Options = function (_React$Component4) {
       return React.createElement(
         'div',
         null,
-        React.createElement(
-          'p',
-          null,
-          this.props.options.length
-        ),
-        React.createElement(Option, null)
+        this.props.options.map(function (option) {
+          return React.createElement(Option, { option: option, key: option });
+        })
       );
     }
   }]);
@@ -141,7 +138,7 @@ var Option = function (_React$Component5) {
         React.createElement(
           'p',
           null,
-          'Option'
+          this.props.option
         )
       );
     }
