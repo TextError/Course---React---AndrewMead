@@ -1,9 +1,23 @@
+class IndecisionApp extends React.Component {
+  render() {
+    const subtitle = 'Put your life in the hands of a computer'
+    return(
+      <div>
+        <Header title='Indecision App' subtitle={subtitle}/>
+        <Action />
+        <Options />
+        <AddOption />
+      </div>
+    );
+  }
+}
+
 class Header extends React.Component {
   render() {
     return(
       <div>
-        <h1>Indecision App</h1>
-        <h2>Put your life in the hands of a computer</h2>
+        <h1>{this.props.title}</h1>
+        <h2>{this.props.subtitle}</h2>
       </div>
     );
   }
@@ -19,11 +33,22 @@ class Action extends React.Component {
   }
 }
 
+class Options extends React.Component {
+  render() {
+    return(
+      <div>
+        <p>Add Options</p>
+        <Option />
+      </div>
+    );
+  }
+}
+
 class Option extends React.Component {
   render() {
     return(
       <div>
-        <li>option Component here</li>
+        <p>Option</p>
       </div>
     );
   }
@@ -39,13 +64,6 @@ class AddOption extends React.Component {
   }
 }
 
-const jxs = (
-  <div>
-    <Header />
-    <Action />
-    <Option />
-    <AddOption />
-  </div>
-)
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
 
-ReactDOM.render(jxs, document.getElementById('app'));
+//babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
