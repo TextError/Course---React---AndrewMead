@@ -153,6 +153,15 @@ class AddOption extends React.Component {
   }
 }
 
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+const User  = (props) => {
+  return(
+    <div>
+      <p>Name: {props.name}</p>
+      <p>Age: {props.age}</p>
+    </div>
+  );
+};
+
+ReactDOM.render(<User name='Andrew' age={26}/>, document.getElementById('app'));
 
 //babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
