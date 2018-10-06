@@ -10,11 +10,13 @@ class IndecisionApp extends React.Component {
   }
 
   handleDeleteOptions() {
-    this.setState(() => {
-      return {
-        options: []
-      };
-    });
+    // this.setState(() => {
+    //   return {
+    //     options: []
+    //   };
+    // });
+
+    this.setState(() => ({ options: [] }))
   };
 
   handlePick() {
@@ -30,11 +32,13 @@ class IndecisionApp extends React.Component {
     }
 
     const {options} = this.state;
-    this.setState((prevState) => {
-      return {
-        options: prevState.options.concat(option)
-      };
-    });
+    // this.setState((prevState) => {
+    //   return {
+    //     options: prevState.options.concat(option)
+    //   };
+    // });
+
+    this.setState((prevState) => ({ options: prevState.options.concat(option)}));
   };
 
   render() {
@@ -184,9 +188,10 @@ class AddOption extends React.Component {
     const inputText = e.target.elements.textInput.value.trim();
     const error = this.props.handleAddOption(inputText);
 
-    this.setState(() => {
-      return { error };
-    });
+    // this.setState(() => {
+    //   return { error };
+    // });
+    this.setState(() => ({ error }))
   };
 
   render() {
