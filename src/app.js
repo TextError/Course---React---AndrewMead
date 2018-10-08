@@ -11,7 +11,16 @@ class IndecisionApp extends React.Component {
   }
 
   componentDidMount() {
-    console.log('component did mount')
+    try {
+      const json = localStorage.getItem('options');
+      const option = JSON.parse(json);
+      
+      if (option) {
+        this.setState(() => ({ options: option }));
+      }
+    } catch(e) {
+      //Do nothing
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -230,7 +239,12 @@ class AddOption extends React.Component {
     // this.setState(() => {
     //   return { error };
     // });
-    this.setState(() => ({ error }))
+    this.setState(() => ({ error }));
+
+    if (!error) {
+      e.target.elements.textInput.value = '';
+    }
+
   };
 
   render() {
