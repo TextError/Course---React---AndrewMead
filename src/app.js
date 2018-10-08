@@ -2,7 +2,7 @@ class IndecisionApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      options: props.options
+      options: []
     }
     this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
     this.handlePick = this.handlePick.bind(this);
@@ -92,10 +92,6 @@ class IndecisionApp extends React.Component {
   }
 }
 
-IndecisionApp.defaultProps = {
-  options: []
-}
-
 const Header = (props) => {
   return(
     <div>
@@ -157,6 +153,7 @@ const Options = (props) => {
   return(
     <div>
       <button onClick={props.handleDeleteOptions}>Remove All</button>
+      {props.options.length === 0 && <p>Please add an option to get started!</p>}
       {
         props.options.map((option) => (
           <Option  
