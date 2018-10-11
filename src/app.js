@@ -19,7 +19,7 @@ class IndecisionApp extends React.Component {
         this.setState(() => ({ options: option }));
       }
     } catch(e) {
-      //Do nothing
+      //Do nothing!
     }
   }
 
@@ -123,7 +123,7 @@ const Action = (props) => {
         onClick={props.handlePick}
         disabled={!props.hasOption}
       >
-      What should I do?
+      What should I do?!?
       </button>
     </div>
   );

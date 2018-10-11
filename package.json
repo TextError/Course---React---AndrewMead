@@ -5,8 +5,8 @@
   "author": "Savin Raul",
   "license": "ISC",
   "scripts": {
-    "serve": "live-server public/",
-    "": ""
+    "live": "live-server public/",
+    "build": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",

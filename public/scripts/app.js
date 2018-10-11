@@ -39,7 +39,7 @@ var IndecisionApp = function (_React$Component) {
           });
         }
       } catch (e) {
-        //Do nothing
+        //Do nothing!
       }
     }
   }, {
@@ -172,7 +172,7 @@ var Action = function Action(props) {
         onClick: props.handlePick,
         disabled: !props.hasOption
       },
-      'What should I do?'
+      'What should I do?!?'
     )
   );
 };
